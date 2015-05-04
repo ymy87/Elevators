@@ -40,8 +40,7 @@ class Building
 		while total_people_assigned < num_pass
 			passenger_floor = x.rand(num_floor)+1
 			person = Passenger.new(passenger_floor, num_floor)
-			person.
-			@pass_array.push()
+			@floor.assign_pass_to_floor(person)
 			total_people_assigned += 1
 		end
 	end

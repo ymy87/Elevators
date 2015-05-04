@@ -9,6 +9,7 @@ class Floor
 		@waiting_list = Array.new
 	end
 
+
 	def get_floor
 		return @curr_floor
 	end

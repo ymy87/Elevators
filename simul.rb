@@ -21,6 +21,7 @@ class Simulation
 		while n > 0
 			@building.
 			n -= 1
+		end
 	end
 
 	def iterate
