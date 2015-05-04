@@ -5,40 +5,43 @@ require '/floor.rb'
 require '/passenger.rb'
 
 class Building
-	attr_reader :num_floor, :num_pass, :full_pass_list, :building_specs, :max_cap, :curr_cap, :curr_floor
+	attr_reader :num_floor, :num_pass, :full_pass_list, :building_specs, :max_cap, :curr_cap, :curr_floor, :elevator1
 	def initialize(num_floor, max_cap, num_pass)
 		@num_floor = num_floor
 		@num_pass = num_pass
 		create_floor(num_floor)
-		create_elevator(max_cap)
-
-		@full_pass_list = Hash.new #Key = original floor data=[desig_floor, satisfied]
-		@floor_list = Hash.new #Key = Floor and contains an array of [num_elevator, num_flPeople and their designated floor
+		@elevator1 = create_elevator(max_cap)
+		create_passengers(num_pass)
+		@pass_array = Array.new
+		@floor_list = Hash.new #Key = Floor and contains an array of passengers
 	end
  	
-	def create_floor(num_floor, waiting_list)
-		levels = 1
-		while levels != num_floor do |level|
-			@floor_list[level] = Floor.new(num_elevator, num_floor, level)
-			@building_specs.push(Floor.new(level, [0, 0]))
+	def create_floor(num_floor)
+		levels = 0
+		while levels < num_floor
+			@floor_list[levels] = Floor.new(levels)
 			levels += 1
 		end
 	end
 
-	def create_elevator(max_cap)
-			@max_cap = max_cap
-			@curr_cap = 0
-			@curr_floor = 0
-
-		end
+	def create_elevator(max_cap, num_floor)
+		@max_cap = max_cap
+		@curr_cap = 0
+		@curr_floor = 0
+		@num_floor = num_floor
+		return Elevator.new(max_cap, num_floor)
 	end
 
+	#This creates passengers and assigns the passengers to initial floors.
+	#It also pushes the passenger to the @pass_array
 	def create_passengers
 		x = Random.new
 		total_people_assigned = 0
-		while total_people_assigned != num_pass
+		while total_people_assigned < num_pass
 			passenger_floor = x.rand(num_floor)+1
-			@full_pass_list[passenger_floor] = Passenger.new(passenger_floor, num_floor)
+			person = Passenger.new(passenger_floor, num_floor)
+			person.
+			@pass_array.push()
 			total_people_assigned += 1
 		end
 	end

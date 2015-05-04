@@ -10,6 +10,10 @@ class Passenger
 		@boarded = false
 	end
 
+	def assign_pass_to_floor
+
+	end
+
 	#method to assign the passengers their desired floor
 	def where_to(num_floor)
 		@desig_floor = @initial_floor
@@ -18,7 +22,7 @@ class Passenger
 		end
 	end
 
-	def passeenger_destination
+	def passenger_destination
 		return @desig_floor
 	end
 
