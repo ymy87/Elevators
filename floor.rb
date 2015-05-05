@@ -1,6 +1,6 @@
-require '/.building.rb'
-require '/.passenger.rb'
-require '/.elevator.rb'
+require './building.rb'
+require './passenger.rb'
+require './elevator.rb'
 
 class Floor
 	attr_reader :num_floor, :floor_num, :waiting_list, :curr_floor

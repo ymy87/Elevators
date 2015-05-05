@@ -26,7 +26,7 @@ class Elevator
 		load_pass(passenger)
 	end
 
-	def load_pass(pass_list)
+	def load_pass(passenger)
 		if @curr_cap = @max_cap
 			return "Sorry, the elevator is full."
 		else
